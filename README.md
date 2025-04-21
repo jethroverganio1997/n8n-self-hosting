@@ -53,6 +53,18 @@ Or if you are using a subdomain, it should look like this:
     n8nio/n8n
     ```
 
+    sudo docker run -d --restart unless-stopped -it \
+   --name n8n \
+   -p 5678:5678 \
+   -e N8N_HOST="admin.jethroverganio.com" \
+   -e WEBHOOK_TUNNEL_URL="https://admin.jethroverganio.com/" \
+   -e WEBHOOK_URL="https://admin.jethroverganio.com/" \
+   -e N8N_RUNNERS_ENABLED=true \
+   -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
+   -e N8N_PUSH_BACKEND = sse \
+   -v ~/.n8n:/root/.n8n \
+   n8nio/n8n
+
 
 This command does the following:
 
